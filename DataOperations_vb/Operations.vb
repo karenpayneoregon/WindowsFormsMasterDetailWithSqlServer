@@ -48,7 +48,10 @@ Public Class Operations
     ''' so the invoice numbers will be different than the ones created
     ''' here with the database sequence I have provided here.
     ''' </summary>
-    Public Sub LoadData(pCustomer As BindingSource, pOrders As BindingSource, pOrderDetails As BindingSource)
+    Public Sub LoadData(
+        pCustomer As BindingSource,
+        pOrders As BindingSource,
+        pOrderDetails As BindingSource)
 
         Dim ds As New DataSet
 
@@ -72,7 +75,6 @@ Public Class Operations
 
                 pOrders.DataSource = pCustomer
                 pOrders.DataMember = ds.Relations(0).RelationName
-
                 pOrderDetails.DataSource = pOrders
                 pOrderDetails.DataMember = ds.Relations(1).RelationName
 
@@ -101,7 +103,8 @@ Public Class Operations
         Using cn As New SqlConnection With {.ConnectionString = ConnectionString}
             Using cmd As New SqlCommand With {.Connection = cn}
 
-                cmd.CommandText = "INSERT INTO Orders (CustomerId,OrderDate,Invoice) VALUES (@CustomerId,@OrderDate,@Invoice)"
+                cmd.CommandText = "INSERT INTO Orders (CustomerId,OrderDate,Invoice) " &
+                                  "VALUES (@CustomerId,@OrderDate,@Invoice)"
 
                 Try
                     cn.Open()

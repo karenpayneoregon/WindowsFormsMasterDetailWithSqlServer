@@ -86,8 +86,8 @@ Public Class MainForm
     ''' </summary>
     Private Sub EditCurrentCustomer()
         Dim CustomerRow As DataRow = CType(bsMaster.Current, DataRowView).Row
-        Dim f As New CustomerForm(False, StateInformation, CustomerRow)
 
+        Dim f As New CustomerForm(False, StateInformation, CustomerRow)
         Try
             If f.ShowDialog() = DialogResult.OK Then
                 Dim ops As New Operations
@@ -147,13 +147,6 @@ Public Class MainForm
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    ''' <remarks>
-    ''' It's possible that there are no changes but for this code sample there is no check.
-    ''' If you wanted to implement this refer to DataTable events to peek at the current and
-    ''' proposed value for, in this case the data column.
-    ''' See my code sample on this
-    ''' https://code.msdn.microsoft.com/Working-with-DataTable-2ff5f158
-    ''' </remarks>
     Private Sub DetailsDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DetailsDataGridView.CellContentClick
         Dim senderGrid = DirectCast(sender, DataGridView)
 
@@ -206,7 +199,7 @@ Public Class MainForm
                 Finally
                     f.Dispose()
                 End Try
-                'MessageBox.Show($"Edit this row {String.Join(",", CType(bsDetails.Current, DataRowView).Row.ItemArray)}")
+
             End If
 
         End If
