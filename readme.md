@@ -13,3 +13,5 @@ Show how to setup relationships between related table for SQL-Server database wi
 Both VB.NET and C# base projects are presented using class projects for data operations interacting with Windows Form projects.
 
 For details see [the following TechNet article](https://social.technet.microsoft.com/wiki/contents/articles/53240.windows-forms-master-detail-view-with-addeditdelete-on-sql-server-with-vb-netc.aspx).
+
+![image](assets/figure1.png)
